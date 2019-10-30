@@ -1,14 +1,14 @@
 # 切片
 strs = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']
-print(strs[0:3]) # 取前三个元素
+print(strs[0:3])  # 取前三个元素
 print(strs[:3])
 
 nums = list(range(100))
-print(nums[:10]) # 取前十个数
-print(nums[-10:]) # 取后十个数
-print(nums[10:20]) # 取前 11-20 个数
-print(nums[:10:2]) # 前十个数，每两个取一个
-print(nums[::5]) # 所有数，每五个取一个
+print(nums[:10])  # 取前十个数
+print(nums[-10:])  # 取后十个数
+print(nums[10:20])  # 取前 11-20 个数
+print(nums[:10:2])  # 前十个数，每两个取一个
+print(nums[::5])  # 所有数，每五个取一个
 
 # 迭代
 d = {'a': 1, 'b': 2, 'c': 3}
@@ -31,6 +31,7 @@ print([s.lower() for s in L])
 g = (x * x for x in range(10))
 for n in g:
     print(n)
+
 
 def fib(max):
     n, a, b = 0, 0, 1
