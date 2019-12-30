@@ -14,6 +14,18 @@ class Node(object):
     def set_next(self, node_next):
         self.next = node_next
 
+    @staticmethod
+    def init_by_list(node_list):
+        pre, head = None, None
+        for i, v in enumerate(node_list):
+            item = Node(v)
+            if pre is not None:
+                pre.next = item
+            else:
+                head = item
+            pre = item
+        return head
+
 
 if __name__ == '__main__':
     node = Node(1)
