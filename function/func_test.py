@@ -36,9 +36,17 @@
 # c = [4, 5, 6]
 # print(list(map(lambda x, y: x + y, b, c)))
 
-from functools import reduce
+# from functools import reduce
+# 
+# print(reduce(lambda x, y: x + y, [2, 3, 4], 1))
+# 
+# for i in zip((1,2,3),(4,5,6)):
+#     print(i)
 
-print(reduce(lambda x, y: x + y, [2, 3, 4], 1))
 
-for i in zip((1,2,3),(4,5,6)):
-    print(i)
+def add(a, b):
+    return lambda x: a * x + b
+
+
+num = add(1, 3)
+print(num(2))
