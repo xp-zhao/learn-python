@@ -1,3 +1,5 @@
+import os
+import sys
 from datetime import datetime, timedelta
 from time import sleep
 
@@ -8,14 +10,22 @@ from selenium.webdriver.chrome.options import Options
 
 from clipboard import clipboard as clip
 
-chrome_driver = 'chromedriver.exe'
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
+
+
+chrome_driver = resource_path('chromedriver.exe')
+# chrome_driver = 'chromedriver.exe'
 chrome_options = Options()
 # 设置chrome浏览器无界面模式
 chrome_options.add_argument('--headless')
 chrome_options.add_argument("--window-size=4000,1600")
 
 #  解决“chrome正受到自动测试软件的控制”信息栏显示，使用disable-infobars属性不生效问题
-chrome_options.add_experimental_option("excludeSwitches", ['enable-automation']);
+chrome_options.add_experimental_option("excludeSwitches", ['enable-automation'])
 driver = webdriver.Chrome(executable_path=chrome_driver, options=chrome_options)
 driver.get('https://www.baidu.com')
 
@@ -53,12 +63,20 @@ def send_screenshot():
     print("保存截图")
     clip.setText(get_text())
     sent_msg()
+    sleep(1)
     clip.setImage(path)
     sent_msg()
 
 
 schedule.every(6).seconds.do(send_screenshot)
 
+stop_time = datetime(2020, 4, 30, 15, 13, 00)
+
 while True:
+    cur_time = datetime.now()
+    if cur_time.__ge__(stop_time):
+        break
     schedule.run_pending()
     sleep(1)
+print("程序结束")
+driver.quit()
