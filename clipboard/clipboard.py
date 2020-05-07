@@ -5,6 +5,7 @@ import pyperclip
 import win32clipboard as clip
 import win32con
 from PIL import Image
+from time import time, sleep
 
 
 # 往剪贴板中放入内容
@@ -18,6 +19,7 @@ def setImage(path):
     output.close()
     clip.OpenClipboard()  # 打开剪贴板
     clip.EmptyClipboard()  # 先清空剪贴板
+    sleep(1)
     clip.SetClipboardData(win32con.CF_DIB, data)  # 将图片放入剪贴板
     clip.CloseClipboard()
 
