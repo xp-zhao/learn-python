@@ -17,10 +17,11 @@ def reverse(head_node):
     return pre_node
 
 
-head = ListNode(1)
-node1 = ListNode(2)
-node2 = ListNode(3)
-head.next = node1
-node1.next = node2
-print(head)
-print(reverse(head))
+if __name__ == '__main__':
+    head = ListNode(1)
+    node1 = ListNode(2)
+    node2 = ListNode(3)
+    head.next = node1
+    node1.next = node2
+    print(head)
+    print(reverse(head))
