@@ -1,3 +1,5 @@
+import leetcode.recursion.recursion as re
+
 class Solution:
     def fizzBuzz(self, n: int) -> list:
         str_list = []
@@ -18,3 +20,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(s.fizzBuzz(15))
+    re.f_1(10)
