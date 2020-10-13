@@ -20,7 +20,7 @@ for k, v in d.items():
     print(k, v)
 
 # 列表生成式
-print(list(range(1,11)))
+print(list(range(1, 11)))
 print([x * x for x in range(1, 11)])
 print([x * x for x in range(1, 11) if x % 2 == 0])
 print([m + n for m in 'ABC' for n in 'XYZ'])
@@ -40,5 +40,7 @@ def fib(max):
         a, b = b, a + b
         n = n + 1
     return 'done'
+
+
 for n in fib(6):
     print(n)
